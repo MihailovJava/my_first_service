@@ -20,7 +20,7 @@ use Psr\Container\ContainerInterface;
  */
 
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    // The error handler should be the first (most outer) middleware to catch
+    // The error Handler should be the first (most outer) middleware to catch
     // all Exceptions.
     $app->pipe(ErrorHandler::class);
     $app->pipe(ServerUrlMiddleware::class);
@@ -39,9 +39,9 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // attached this way will see a URI with the matched path segment removed.
     //
     // i.e., path of "/api/member/profile" only passes "/member/profile" to $apiMiddleware
-    // - $app->pipe('/api', $apiMiddleware);
-    // - $app->pipe('/docs', $apiDocMiddleware);
-    // - $app->pipe('/files', $filesMiddleware);
+    // - $App->pipe('/api', $apiMiddleware);
+    // - $App->pipe('/docs', $apiDocMiddleware);
+    // - $App->pipe('/files', $filesMiddleware);
 
     // Register the routing middleware in the middleware pipeline.
     // This middleware registers the Mezzio\Router\RouteResult request attribute.

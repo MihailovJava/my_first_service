@@ -13,16 +13,17 @@ use Psr\Container\ContainerInterface;
  *
  * Setup routes with a single request method:
  *
- * $app->get('/', App\Handler\HomePageHandler::class, 'home');
- * $app->post('/album', App\Handler\AlbumCreateHandler::class, 'album.create');
- * $app->put('/album/{id:\d+}', App\Handler\AlbumUpdateHandler::class, 'album.put');
- * $app->patch('/album/{id:\d+}', App\Handler\AlbumUpdateHandler::class, 'album.patch');
- * $app->delete('/album/{id:\d+}', App\Handler\AlbumDeleteHandler::class, 'album.delete');
+ * $App->get('/', App\Handler\HomePageHandler::class, 'home');
+ * $App->post('/album', App\Handler\AlbumCreateHandler::class, 'album.create');
+ * $App->put('/album/{id:\d+}', App\Handler\AlbumUpdateHandler::class, 'album.put');
+ * $App->patch('/album/{id:\d+}', App\Handler\AlbumUpdateHandler::class, 'album.patch');
+ * $App->delete('/album/{id:\d+}', App\Handler\AlbumDeleteHandler::class, 'album.delete');
  *
  * Or with multiple request methods:
  *
- * $app->route('/contact', App\Handler\ContactHandler::class, ['GET', 'POST', ...], 'contact');
+ * $App->route('/contact', App\Handler\ContactHandler::class, ['GET', 'POST', ...], 'contact');
  */
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
+    $app->get('/hello', \App\Handler\HelloHandler::class, 'hello_world');
 };
